@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% import "_macros.html" as m %}
+{% block body %}
+<p>Hi {{ hr_name }},</p>
+<p><b>{{ candidate_name }}</b> has <b>{{ decision }}</b> the offer for <b>{{ job_title }}</b>.</p>
+{{ m.rows([("Note from candidate", note), ("Responded", responded_at)]) }}
+{{ m.button(link, "Open offer") }}
+{% endblock %}

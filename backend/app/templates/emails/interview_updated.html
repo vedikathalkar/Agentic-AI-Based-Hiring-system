@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% import "_macros.html" as m %}
+{% block body %}
+<p>Hi {{ recipient_name }},</p>
+<p>The interview for <b>{{ job_title }}</b>{% if audience == "hr" %} with <b>{{ candidate_name }}</b>{% endif %} has been <b>{{ status_label }}</b>.</p>
+{{ m.rows([("Date", date_label), ("Time", time_label), ("Timezone", timezone), ("Mode", mode), ("Reason", reason)]) }}
+{{ m.button(link, "View details") }}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% import "_macros.html" as m %}
+{% block body %}
+<p>Hi {{ candidate_name }},</p>
+<p>The status of your application for <b>{{ job_title }}</b>{% if company_name %} at {{ company_name }}{% endif %} is now <b>{{ status_label }}</b>.</p>
+{% if headline %}<p style="font-size:16px"><b>{{ headline }}</b></p>{% endif %}
+{% if summary %}<p>{{ summary }}</p>{% endif %}
+{% if strengths %}<p style="margin-bottom:4px"><b>What worked in your favour</b></p><ul style="margin-top:0">{% for s in strengths %}<li>{{ s }}</li>{% endfor %}</ul>{% endif %}
+{% if gaps %}<p style="margin-bottom:4px"><b>Where the gap was</b></p><ul style="margin-top:0">{% for g in gaps %}<li>{{ g }}</li>{% endfor %}</ul>{% endif %}
+{% if next_steps %}<p style="margin-bottom:4px"><b>What you can do next</b></p><ul style="margin-top:0">{% for n in next_steps %}<li>{{ n }}</li>{% endfor %}</ul>{% endif %}
+{% if hr_note %}<p><b>Note from the hiring team:</b> {{ hr_note }}</p>{% endif %}
+{{ m.button(link, "See the full explanation") }}
+{% endblock %}

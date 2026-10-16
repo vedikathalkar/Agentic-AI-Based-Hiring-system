@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% import "_macros.html" as m %}
+{% block body %}
+{% if audience == "hr" %}
+<p>Hi {{ hr_name }},</p>
+<p><b>{{ candidate_name }}</b> has started the assessment for <b>{{ job_title }}</b>.</p>
+{{ m.rows([("Candidate", candidate_name), ("Email", candidate_email), ("Started", started_at), ("Time limit", time_limit)]) }}
+{{ m.button(link, "View candidate") }}
+{% else %}
+<p>Hi {{ candidate_name }},</p>
+<p>Your assessment for <b>{{ job_title }}</b>{% if company_name %} at <b>{{ company_name }}</b>{% endif %} has started.</p>
+{{ m.rows([("Questions", questions), ("Time limit", time_limit), ("Started", started_at), ("Must be submitted by", deadline)]) }}
+<p>If you leave the page you can continue from the same link until the deadline. When the time runs out, your saved answers are submitted automatically.</p>
+{{ m.button(link, "Continue assessment") }}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>{{ subject }}</title></head>
+<body style="margin:0;background:#f5f4fa;font-family:Arial,Helvetica,sans-serif;color:#17152b">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f4fa;padding:24px 0"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border:1px solid #e6e3f1;border-radius:14px;overflow:hidden">
+<tr><td style="background:#14132b;padding:18px 24px;color:#ffffff;font-size:20px;font-weight:bold">
+<span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#e8b93c;margin-right:8px"></span>{{ app_name }}</td></tr>
+<tr><td style="padding:24px;font-size:15px;line-height:1.6">
+{% block body %}{% endblock %}
+</td></tr>
+<tr><td style="padding:16px 24px;border-top:1px solid #e6e3f1;font-size:12px;color:#6a6784">
+You are receiving this because of activity on your {{ app_name }} account. Manage email preferences in Settings.
+</td></tr></table></td></tr></table></body></html>

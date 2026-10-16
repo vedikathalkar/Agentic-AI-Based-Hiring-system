@@ -1,0 +1,186 @@
+/* Hirelune theme, taken from the home page: dark ground, bold Syne display
+   type, pill buttons and one colour per hiring agent. The light variant is the
+   home page's cream "paper" sections. Token names are kept so every component
+   and inline style follows whichever variant is active. */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root,
+:root[data-theme="dark"],
+.theme-dark {
+  /* text, strongest to faintest */
+  --ink-950: #F3F1EC;
+  --ink-800: #D6D3CC;
+  --ink-700: #C9C7C1;
+  --ink-600: #B4B3B2;
+  --ink-500: #9396A3;
+  /* lines and surfaces */
+  --ink-300: #3A3E4B;
+  --ink-100: #2A2D38;
+  --ink-50: #0E0F13;
+  --white: #15171E;
+  --raised: #1C1F28;
+
+  --brand: #FFC53D;
+  --brand-600: #FFD466;
+  --brand-t: #2B2614;
+  --on-brand: #0E0F13;
+  --gold: #FFC53D;
+  --gold-t: #2B2614;
+
+  --side: #15171E;
+  --side-hover: #1C1F28;
+  --side-active: #232733;
+  --side-text: #C9C7C1;
+  --side-muted: #9396A3;
+  --side-line: #2A2D38;
+
+  --ok: #9BE36B;
+  --ok-bg: #1B2A18;
+  --warn: #FFA24A;
+  --warn-bg: #2E2114;
+  --danger: #FF6B81;
+  --danger-bg: #301920;
+
+  --a8: #F3F1EC;
+
+  --shadow-card: none;
+  --row-hover: #1C1F28;
+  --overlay: rgba(0, 0, 0, .68);
+  color-scheme: dark;
+}
+
+/* Paper variant: the cream sections of the home page. */
+:root[data-theme="light"] {
+  --ink-950: #0E0F13;
+  --ink-800: #2A2D38;
+  --ink-700: #3A3E4B;
+  --ink-600: #4A4D5A;
+  --ink-500: #62656F;
+  --ink-300: #C4C0B4;
+  --ink-100: #DDD9CE;
+  --ink-50: #F3F1EC;
+  --white: #FBFAF7;
+  --raised: #EFECE4;
+
+  --brand: #0E0F13;
+  --brand-600: #2A2D38;
+  --brand-t: #FBEFC6;
+  --on-brand: #F3F1EC;
+  --gold: #FFC53D;
+  --gold-t: #FBEFC6;
+
+  --side: #0E0F13;
+  --side-hover: #1C1F28;
+  --side-active: #232733;
+  --side-text: #C9C7C1;
+  --side-muted: #9396A3;
+  --side-line: #0E0F13;
+
+  --ok: #1F6F3A;
+  --ok-bg: #DDF0D8;
+  --warn: #8A4B00;
+  --warn-bg: #FCE7CC;
+  --danger: #B4233F;
+  --danger-bg: #FADFE3;
+
+  --a8: #0E0F13;
+
+  --shadow-card: none;
+  --row-hover: #EFECE4;
+  --overlay: rgba(14, 15, 19, .55);
+  color-scheme: light;
+}
+
+:root {
+  /* one colour per agent, in pipeline order */
+  --a1: #FF7A45;
+  --a2: #FFC53D;
+  --a3: #9BE36B;
+  --a4: #4FD1C5;
+  --a5: #5AA9FF;
+  --a6: #A48BFF;
+  --a7: #FF78B6;
+
+  /* names the home page styles use */
+  --bg: #0E0F13;
+  --bg2: #15171E;
+  --bg3: #1C1F28;
+  --line: #2A2D38;
+  --line-2: #3A3E4B;
+  --ink: #F3F1EC;
+  --ink-soft: #C9C7C1;
+  --mute: #9396A3;
+  --dim: #5F6270;
+
+  --font-display: 'Syne', 'Arial Black', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --ease: cubic-bezier(.77, 0, .18, 1);
+  --gut: clamp(16px, 4vw, 56px);
+}
+
+.theme-dark { background: var(--ink-50); color: var(--ink-950); }
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+html { background: var(--ink-50); }
+
+body {
+  background: var(--ink-50);
+  color: var(--ink-950);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0;
+  color: var(--ink-950);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.02; }
+h2 { font-size: 23px; }
+h3 { font-size: 18px; }
+
+p { margin: 0; }
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+::selection { background: var(--a2); color: #0E0F13; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

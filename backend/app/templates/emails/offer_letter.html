@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% import "_macros.html" as m %}
+{% block body %}
+<p>Dear {{ candidate_name }},</p>
+<p>{{ company_name }} is pleased to extend you an offer for the position of <b>{{ job_title }}</b>.</p>
+{{ m.rows([("Company", company_name), ("Role", job_title), ("Joining date", joining_date), ("Compensation", ctc_amount), ("Location", location), ("Respond by", expires_on)]) }}
+<p>The full offer letter is attached as a PDF and available securely in your {{ app_name }} dashboard, where you can accept or decline it.</p>
+{{ m.button(link, "View offer") }}
+{% endblock %}

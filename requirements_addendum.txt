@@ -1,0 +1,5 @@
+# Add to your existing backend/requirements.txt
+langchain>=1.4.0
+langchain-google-genai>=4.4.0
+google-generativeai>=0.8.0
+python-dotenv>=1.0.0

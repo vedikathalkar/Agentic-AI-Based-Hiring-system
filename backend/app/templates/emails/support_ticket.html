@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% import "_macros.html" as m %}
+{% block body %}
+<p>Hi {{ recipient_name }},</p>
+<p>{{ intro }}</p>
+{{ m.rows([("Ticket", "#" ~ ticket_id), ("Subject", ticket_subject), ("Status", status_label)]) }}
+{% if message %}<blockquote style="margin:12px 0;padding:10px 14px;border-left:3px solid #e8b93c;background:#fbf1d6">{{ message }}</blockquote>{% endif %}
+{{ m.button(link, "Open ticket") }}
+{% endblock %}

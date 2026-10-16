@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% import "_macros.html" as m %}
+{% block body %}
+<p>Hi {{ hr_name }},</p>
+{% if status == "verified" %}<p>Your company <b>{{ company_name }}</b> has been <b>verified</b>. You can now post jobs, unlock candidates and send offers.</p>
+{% elif status == "rejected" %}<p>We couldn't verify <b>{{ company_name }}</b> yet.</p>{{ m.rows([("Reason", reason)]) }}<p>Please correct the details and submit again.</p>
+{% else %}<p>We received the verification documents for <b>{{ company_name }}</b>. Our team will review them shortly.</p>{% endif %}
+{{ m.button(link, "Open verification") }}
+{% endblock %}

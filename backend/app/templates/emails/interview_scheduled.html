@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% import "_macros.html" as m %}
+{% block body %}
+{% if audience == "hr" %}
+<p>Hi {{ hr_name }},</p>
+<p>This confirms the interview you {{ "updated" if updated else "scheduled" }} with <b>{{ candidate_name }}</b>.</p>
+{% else %}
+<p>Hi {{ candidate_name }},</p>
+<p>{% if updated %}Your interview details have been updated.{% else %}Good news — you have been invited to an interview{% endif %} for <b>{{ job_title }}</b>{% if company_name %} at <b>{{ company_name }}</b>{% endif %}.</p>
+{% endif %}
+{{ m.rows([("Candidate", candidate_name if audience == "hr" else None), ("Candidate email", candidate_email if audience == "hr" else None), ("Company", company_name), ("Role", job_title), ("Date", date_label), ("Time", time_label), ("Timezone", timezone), ("Mode", mode), ("Meeting link", meeting_link), ("Location", location), ("Interviewer", interviewer), ("Notes", notes), ("Contact", contact)]) }}
+{% if audience != "hr" %}<p>Need to reschedule or cancel? Reply to this email or contact {{ contact or "the recruiter" }}.</p>{% endif %}
+{{ m.button(link, "View interview") }}
+{% endblock %}

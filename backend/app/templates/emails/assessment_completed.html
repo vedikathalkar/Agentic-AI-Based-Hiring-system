@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% import "_macros.html" as m %}
+{% block body %}
+{% if audience == "hr" %}
+<p>Hi {{ hr_name }},</p>
+<p><b>{{ candidate_name }}</b> completed the assessment for <b>{{ job_title }}</b>.</p>
+{{ m.rows([("Test score", test_score), ("Final score", final_score), ("Completed", completed_at)]) }}
+{{ m.button(link, "Review candidate") }}
+{% else %}
+<p>Hi {{ candidate_name }},</p>
+<p>Thanks — your assessment for <b>{{ job_title }}</b> has been submitted{% if auto_submitted %} automatically when the time limit was reached{% endif %}.</p>
+{{ m.rows([("Test score", test_score), ("Completed", completed_at)]) }}
+{{ m.button(link, "View your application") }}
+{% endif %}
+{% endblock %}
